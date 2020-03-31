@@ -1,0 +1,26 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+
+  linux:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        compiler: [g++, clang++]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y libcurl4-openssl-dev
+    - name: Compile tests
+      working-directory: build
+      env:
+        CXX: ${{ matrix.compiler }}
+      run: |
+        cmake ..
+        make -j4
