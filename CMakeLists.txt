@@ -20,9 +20,9 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}"
-        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib/aws-checksums/cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib/aws-c-event-stream/cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib/aws-c-common/cmake")
+        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib64/aws-checksums/cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib64/aws-c-event-stream/cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/aws_sdk_cpp-install/lib64/aws-c-common/cmake")
 string(REPLACE ";" "|" CMAKE_PREFIX_PATH_ALT_SEP ${CMAKE_PREFIX_PATH})
 
 configure_file(CMakeLists.txt.in aws_sdk_cpp-download/CMakeLists.txt)
